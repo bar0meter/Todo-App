@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card mx-auto" style="width: 400px">
+    <div class="card-header text-center">
+      <h2>Todo App</h2>
+    </div>
+    <div class="card-body">
+      <form action="" class="form form-inline justify-content-center" [formGroup]="todoForm">
+        <input type="text" class="form-control mr-2" formControlName="activity">
+        <button class="btn btn-primary" (click)="addToList()">Add to list</button>
+      </form>
+    </div>
+    <div class="jumbotron" *ngIf="showList">
+      <todo-list [activities]="todoList"></todo-list>
+    </div>
+  </div>
+</div>
