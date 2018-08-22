@@ -29,6 +29,13 @@ export class TodoAppComponent implements OnInit {
     TodoAppComponent.ID++;
     this.todoList.push(activity);
     this.todoForm.reset(this.todoForm.get("activity"));
-    console.log(JSON.stringify(this.todoList));
+  }
+
+  onDelete(deleteId) {
+    for (let t of this.todoList) {
+      if (t["id"] === deleteId) {
+        this.todoList.splice(this.todoList.indexOf(t), 1);
+      }
+    }
   }
 }

@@ -9,8 +9,12 @@
         <button class="btn btn-primary" (click)="addToList()">Add to list</button>
       </form>
     </div>
-    <div class="jumbotron" *ngIf="showList">
-      <todo-list [activities]="todoList"></todo-list>
+    <div class="jumbotron vertical-center" *ngIf="showList">
+      <div class="container text-center">
+        <div *ngFor="let activity of todoList" class="mb-2 align-middle">
+          <todo-list [activity]="activity" (deleteActivity)="onDelete($event)"></todo-list>
+        </div>
+      </div>
     </div>
   </div>
 </div>

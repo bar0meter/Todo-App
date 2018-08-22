@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "todo-list",
@@ -7,8 +7,15 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class TodoListComponent implements OnInit {
   @Input()
-  activities: Object[];
+  activity;
+
+  @Output()
+  deleteActivity = new EventEmitter();
   constructor() {}
 
   ngOnInit() {}
+
+  onClick() {
+    this.deleteActivity.emit(this.activity.id);
+  }
 }
